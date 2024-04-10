@@ -5,13 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - EscadaQuebrada
-  - EscadaInteira
+  - Ladder
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Barrel
   - Water
   - UI
   - 
