@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92912b57dcea8f47bf57c658d1a4eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 8
+  jumpHeight: 6
   fallSpeed: 0.03
-  speed: 8
+  speed: 4
+  climbSpeed: 3
   feet: {fileID: 7054423953055168922}
   filter:
     useTriggers: 0
