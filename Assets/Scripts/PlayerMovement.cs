@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float Yvelocity = 0;
     private float Xvelocity = 0;
     [SerializeField] private float speed = 10f;
+    [SerializeField] private  float climbSpeed;
 
     Collider2D playerCollider;
 
@@ -169,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
     void Climbing(Collider2D colLadder)
     {
 
-        transform.Translate(new Vector3(colLadder.transform.position.x - transform.position.x, jumpHeight * dirVertical * 0.001f, 0));
+        transform.Translate(new Vector3(colLadder.transform.position.x - transform.position.x, climbSpeed * dirVertical * 0.001f, 0));
 
     }
 }
