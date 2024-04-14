@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     private int vidas = 3;
+    private int cont = 0;
     private int score = 0;
     private float timer = 60.0f; // Timer de 1 minuto
     public int roupaAtual = 0;
@@ -17,13 +18,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         originalSpeed = Player.GetComponent<PlayerMovement>().speed;
-        NewGame();
+        NewRoupa();
     }
 
-    public void NewGame()
+    public void NewRoupa()
     {
-        vidas = 3;
-        score = 0;
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
         Debug.Log(roupaCorreta);
         //  
@@ -38,13 +37,12 @@ public class GameManager : MonoBehaviour
 
     public void RoupaFalha()
     {
-        //
-        vidas--; 
-        if (vidas <= 0)
-        {
-            // Game Over
-        }
+        // 
+        
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
+        //restartar o timer
+        
+
     }
     
     public void buff(){
@@ -66,6 +64,13 @@ public class GameManager : MonoBehaviour
         {
             RoupaFalha(); // Chama a função RoupaFalha
             timer = 60.0f; // Reinicia o timer
+            vidas--; // Decrementa as vidas
+            if (vidas == 0) // Se as vidas acabaram
+            {
+                // Game Over
+                Debug.Log("Game Over");
+            }
+        
         }
     }
 

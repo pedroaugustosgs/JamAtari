@@ -8,6 +8,7 @@ TagManager:
   - Ladder
   - Red
   - Blue
+  - Green
   layers:
   - Default
   - TransparentFX
