@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     private float originalSpeed;
     private float buffDuration = 5.0f; // Duração do buff em segundos
 
+    public int aneisTotal = 4;
+    public int aneisPassados = 0;
+
     void Start()
     {
         originalSpeed = Player.GetComponent<PlayerMovement>().speed;
@@ -46,6 +49,17 @@ public class GameManager : MonoBehaviour
 
     }
     
+    public void AneisPassados()
+    {
+        aneisPassados++;
+        if (aneisPassados == aneisTotal)
+        {
+            // Ganhou
+            Debug.Log("Ganhou");
+            RoupaCompleta();
+        }
+    }
+
     public void buff(){
         Player.GetComponent<PlayerMovement>().speed *= 1.2f; // Aumenta a velocidade em 20%
         Invoke("removeBuff", buffDuration); // Remove o buff após buffDuration segundos

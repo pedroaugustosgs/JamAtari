@@ -38,8 +38,12 @@ public class Colisons : MonoBehaviour
             }
         }
 
-        
-        
         other.gameObject.SetActive(false);
+
+        if(other.gameObject.tag == "Anel"){
+            if(roupaCorreta == gm.GetComponent<GameManager>().roupaAtual){
+                gm.GetComponent<GameManager>().AneisPassados();
+            }
+        }
     }
 }
