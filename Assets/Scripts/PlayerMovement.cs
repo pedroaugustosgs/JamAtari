@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float fallSpeed = 0.1f;
     private float Yvelocity = 0;
     private float Xvelocity = 0;
-    [SerializeField] private float speed = 10f;
+    [SerializeField] public float speed = 10f;
     [SerializeField] private  float climbSpeed;
 
     Collider2D playerCollider;
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics2D.OverlapBox(feet.position, feet.localScale, 0, filter, results) > 0 && Yvelocity < 0)
         {
-            //Debug.Log("tocou  no chão");
+            //Debug.Log("tocou  no chï¿½o");
             Yvelocity = 0;
             Vector2 surface = Physics2D.ClosestPoint(transform.position, results[0]) + Vector2.up * floorHeight;
             transform.position = new Vector3(transform.position.x, surface.y, 0);
