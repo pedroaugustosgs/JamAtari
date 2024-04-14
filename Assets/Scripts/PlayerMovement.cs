@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         if (altura > alturamax)
         {
             alturamax = altura;
-            Debug.Log(alturamax);
+            //Debug.Log(alturamax);
         }
 
 

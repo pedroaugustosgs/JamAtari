@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public void NewRoupa()
     {
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
+        roupaAtual = Random.Range(0, 3);  // 0, 1, 2
         Debug.Log(roupaCorreta);
         //  
     }

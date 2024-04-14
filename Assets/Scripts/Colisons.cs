@@ -7,8 +7,9 @@ public class Colisons : MonoBehaviour
     public GameObject gm;
     
 
-    // Start is called before the first frame update
-    private void OnCollisionEnter(Collision other) {
+    
+    private void OnCollisionEnter2D(Collision2D other) {
+        //Debug.Log("Colidiu");
         int roupaCorreta = gm.GetComponent<GameManager>().roupaCorreta;
 
 
@@ -17,6 +18,7 @@ public class Colisons : MonoBehaviour
                 gm.GetComponent<GameManager>().buff();
             }else{
                 gm.GetComponent<GameManager>().RoupaFalha();
+                gm.GetComponent<GameManager>().roupaAtual = 2;
             }
         }
         if(other.gameObject.tag == "Green"){
@@ -24,6 +26,7 @@ public class Colisons : MonoBehaviour
                 gm.GetComponent<GameManager>().buff();
             }else{
                 gm.GetComponent<GameManager>().RoupaFalha();
+                gm.GetComponent<GameManager>().roupaAtual = 1;
             }
         }
         if(other.gameObject.tag == "Blue"){
@@ -31,10 +34,12 @@ public class Colisons : MonoBehaviour
                 gm.GetComponent<GameManager>().buff();
             }else{
                 gm.GetComponent<GameManager>().RoupaFalha();
+                gm.GetComponent<GameManager>().roupaAtual = 0;
             }
         }
 
         
-
+        
+        other.gameObject.SetActive(false);
     }
 }
