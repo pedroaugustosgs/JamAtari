@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour
     public GameObject vida2;
     public GameObject vida3;
 
+    public GameObject anel;
+    public GameObject anel2;
+    public GameObject anel3;
+    public GameObject anel4;
+
     private Image linhaUI = null;
     private Image RoupaUI = null;
     private TMPText scoreUI = null;
@@ -69,6 +74,10 @@ public class GameManager : MonoBehaviour
     public void RoupaCompleta()
     {
         //
+        anel.SetActive(true);
+        anel2.SetActive(true);
+        anel3.SetActive(true);
+        anel4.SetActive(true);
         score++;
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
         UpdateUI();
@@ -77,7 +86,11 @@ public class GameManager : MonoBehaviour
     public void RoupaFalha()
     {
         // 
-        
+        anel.SetActive(true);
+        anel2.SetActive(true);
+        anel3.SetActive(true);
+        anel4.SetActive(true);
+
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
         //restartar o timer
         UpdateUI();

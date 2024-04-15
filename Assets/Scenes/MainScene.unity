@@ -2618,6 +2618,10 @@ MonoBehaviour:
   vida1: {fileID: 2110852055}
   vida2: {fileID: 557509256}
   vida3: {fileID: 333877832}
+  anel: {fileID: 412023996}
+  anel2: {fileID: 375649858}
+  anel3: {fileID: 1189128355}
+  anel4: {fileID: 1081773079}
   linhaAzul: {fileID: 21300000, guid: d89bcd3da5477dd4e99801cd7988fcec, type: 3}
   linhaVerde: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   linhaVermelha: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}

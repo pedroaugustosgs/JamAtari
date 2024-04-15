@@ -16,33 +16,38 @@ public class Colisons : MonoBehaviour
         if(other.gameObject.tag == "Red"){
             if(roupaCorreta == 2 && gm.GetComponent<GameManager>().roupaAtual == 2){
                 gm.GetComponent<GameManager>().buff();
+                other.gameObject.SetActive(false);
             }else{
                 gm.GetComponent<GameManager>().RoupaFalha();
                 gm.GetComponent<GameManager>().roupaAtual = 2;
+                other.gameObject.SetActive(false);
             }
         }
         if(other.gameObject.tag == "Green"){
             if(roupaCorreta == 1 && gm.GetComponent<GameManager>().roupaAtual == 1){
                 gm.GetComponent<GameManager>().buff();
+                other.gameObject.SetActive(false);
             }else{
                 gm.GetComponent<GameManager>().RoupaFalha();
                 gm.GetComponent<GameManager>().roupaAtual = 1;
+                other.gameObject.SetActive(false);
             }
         }
         if(other.gameObject.tag == "Blue"){
             if(roupaCorreta == 0 && gm.GetComponent<GameManager>().roupaAtual == 0){
                 gm.GetComponent<GameManager>().buff();
+                other.gameObject.SetActive(false);
             }else{
                 gm.GetComponent<GameManager>().RoupaFalha();
                 gm.GetComponent<GameManager>().roupaAtual = 0;
+                other.gameObject.SetActive(false);
             }
         }
-
-        other.gameObject.SetActive(false);
 
         if(other.gameObject.tag == "Anel"){
             if(roupaCorreta == gm.GetComponent<GameManager>().roupaAtual){
                 gm.GetComponent<GameManager>().AneisPassados();
+                other.gameObject.SetActive(false);
             }
         }
     }
