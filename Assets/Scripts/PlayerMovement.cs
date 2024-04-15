@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -141,11 +142,19 @@ public class PlayerMovement : MonoBehaviour
 
 
         Xvelocity = dir * speed;
-
+        if (Xvelocity < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
         animator.SetFloat("xspeed", Xvelocity);
         //Debug.Log(Yvelocity);
         //Debug.Log(jumpHeight);
         transform.Translate(new Vector3(Xvelocity, Yvelocity, 0) * Mathf.Clamp(Time.deltaTime, 0, 0.002f));
+       
 
     }
 

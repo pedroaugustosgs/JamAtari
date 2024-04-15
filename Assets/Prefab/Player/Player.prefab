@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 6
   fallSpeed: 0.03
-  speed: 4
+  speed: 3
   climbSpeed: 3
   feet: {fileID: 7054423953055168922}
   filter:
