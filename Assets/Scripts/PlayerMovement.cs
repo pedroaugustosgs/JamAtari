@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     
 
-    
+    float altura = 0f;
+    float alturamax = 0f;
 
     float bufferJump;
     [SerializeField] float bufferTime = 1;
@@ -125,7 +126,12 @@ public class PlayerMovement : MonoBehaviour
             bufferJump = 0f;
         }
 
-        
+        altura = transform.position.y;
+        if (altura > alturamax)
+        {
+            alturamax = altura;
+            //Debug.Log(alturamax);
+        }
 
 
         Xvelocity = dir * speed;
