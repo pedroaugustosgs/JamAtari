@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ffeae25945835d740952719bc3fcddd0
+guid: b8fd13c416ed9a74d8561a5ad57de5aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tonhao-Sheet_0
+      name: agulha-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 80
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed6006f8e635f5340bda678946c413dc
-      internalID: -1764164804
+      spriteID: b87581ba129a51f48b63f2f22c1ac9eb
+      internalID: 1986547028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tonhao-Sheet_1
+      name: agulha-Sheet_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 32
         y: 0
-        width: 80
-        height: 80
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a9f502f4189ce74e9fe3b693cb2fffd
-      internalID: 546000508
+      spriteID: 383a27ddd9243584eb7712be95eb9005
+      internalID: -454399739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tonhao-Sheet_2
+      name: agulha-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efc3e8d760c32545be1d8fd551c9d96
+      internalID: -1955922603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agulha-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8590b601322d74fac4dcf5020137a7
+      internalID: 1834554764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agulha-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398fa69a78752634dab340d9bb88dd73
+      internalID: 46882370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agulha-Sheet_5
       rect:
         serializedVersion: 2
         x: 160
         y: 0
-        width: 80
-        height: 80
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bcb7f1b8778c324cbf89a4dc25a604c
-      internalID: -1056305675
+      spriteID: cf6444bf310262a4bbe5b91edd87a1f6
+      internalID: -950464363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tonhao-Sheet_3
+      name: agulha-Sheet_6
       rect:
         serializedVersion: 2
-        x: 240
+        x: 192
         y: 0
-        width: 80
-        height: 80
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +250,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ee142594b94c1247a548b2a269ad091
-      internalID: -2004427428
+      spriteID: 9da9b862a2504c349afc5c872167f2bd
+      internalID: -1161933744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agulha-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36a852e56233db4a8c04ac422d1e5c3
+      internalID: 194385766
       vertices: []
       indices: 
       edges: []
@@ -204,10 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tonhao-Sheet_0: -1764164804
-      tonhao-Sheet_1: 546000508
-      tonhao-Sheet_2: -1056305675
-      tonhao-Sheet_3: -2004427428
+      agulha-Sheet_0: 1986547028
+      agulha-Sheet_1: -454399739
+      agulha-Sheet_2: -1955922603
+      agulha-Sheet_3: 1834554764
+      agulha-Sheet_4: 46882370
+      agulha-Sheet_5: -950464363
+      agulha-Sheet_6: -1161933744
+      agulha-Sheet_7: 194385766
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

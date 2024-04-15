@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         if (isClimbing)
         {
             Climbing(colLadder);
-            animator.SetBool("isClimbing", true);
+            animator.CrossFade("Climb_Ani", 0, 0);
         }
         else
         {
@@ -105,7 +105,15 @@ public class PlayerMovement : MonoBehaviour
             Vector2 surface = Physics2D.ClosestPoint(transform.position, results[0]) + Vector2.up * floorHeight;
             transform.position = new Vector3(transform.position.x, surface.y, 0);
             isGrounded = true;
-            animator.SetBool("isJumping", false);
+
+            
+            if (Xvelocity > 0.01 || Xvelocity < - 0.01) {
+                animator.CrossFade("Walk_Ani", 0, 0);
+            }
+            else
+            {
+                animator.CrossFade("Idle_Ani", 0, 0);
+            }
         }
         else
         {
@@ -130,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
             Yvelocity = jumpHeight;
             isGrounded = false;
             bufferJump = 0f;
-            animator.SetBool("isJumping", true);
+            animator.CrossFade("Jump_Ani", 0,0);
         }
 
         altura = transform.position.y;
@@ -146,11 +154,11 @@ public class PlayerMovement : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
-        else
+        else if (Xvelocity > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
-        animator.SetFloat("xspeed", Xvelocity);
+       
         //Debug.Log(Yvelocity);
         //Debug.Log(jumpHeight);
         transform.Translate(new Vector3(Xvelocity, Yvelocity, 0) * Mathf.Clamp(Time.deltaTime, 0, 0.002f));
@@ -188,6 +196,6 @@ public class PlayerMovement : MonoBehaviour
     {
 
         transform.Translate(new Vector3(colLadder.transform.position.x - transform.position.x, climbSpeed * dirVertical * 0.001f, 0));
-
+        GetComponent<SpriteRenderer>().flipX = false;
     }
 }

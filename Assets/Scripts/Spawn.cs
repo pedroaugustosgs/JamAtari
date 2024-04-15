@@ -10,9 +10,14 @@ public class Spawn : MonoBehaviour
     public float spawnTimeMax = 5.0f;
     public float spawnDelay = 2.0f;
 
+    //Animação tonhao
+    Animator animatorTonhao;
+    
     void Start()
     {
+        animatorTonhao = GetComponent<Animator>();
         Spawner();
+        
     }
 
     void Spawner()
@@ -35,12 +40,18 @@ public class Spawn : MonoBehaviour
                 possibleBarrels.Add(i);
             }
         }
+        
 
         // Escolhe um índice aleatório da lista de barris possíveis
         int randomBarrel = possibleBarrels[Random.Range(0, possibleBarrels.Count)];
 
         Instantiate(barrelPrefab[randomBarrel], transform.position, Quaternion.identity);
 
+
+        
         Invoke("Spawner", Random.Range(spawnTimeMin, spawnTimeMax));
+        animatorTonhao.CrossFade("tonhao_working", 0, 0);
+
+
     }
 }
