@@ -38,10 +38,13 @@ public class PlayerMovement : MonoBehaviour
     bool isLadderExit;
     Collider2D colLadder;
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
        playerCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -77,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         if (isClimbing)
         {
             Climbing(colLadder);
+            animator.SetBool("isClimbing", true);
         }
         else
         {
@@ -100,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 surface = Physics2D.ClosestPoint(transform.position, results[0]) + Vector2.up * floorHeight;
             transform.position = new Vector3(transform.position.x, surface.y, 0);
             isGrounded = true;
+            animator.SetBool("isJumping", false);
         }
         else
         {
@@ -124,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
             Yvelocity = jumpHeight;
             isGrounded = false;
             bufferJump = 0f;
+            animator.SetBool("isJumping", true);
         }
 
         altura = transform.position.y;
@@ -135,6 +141,8 @@ public class PlayerMovement : MonoBehaviour
 
 
         Xvelocity = dir * speed;
+
+        animator.SetFloat("xspeed", Xvelocity);
         //Debug.Log(Yvelocity);
         //Debug.Log(jumpHeight);
         transform.Translate(new Vector3(Xvelocity, Yvelocity, 0) * Mathf.Clamp(Time.deltaTime, 0, 0.002f));
