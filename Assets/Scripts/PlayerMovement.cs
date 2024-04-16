@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
 
     Animator animator;
 
+    //Sound
+    [SerializeField] private AudioClip jumpSoundClip;
+    [SerializeField] private AudioClip walkSoundClip;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +114,10 @@ public class PlayerMovement : MonoBehaviour
             
             if (Xvelocity > 0.01 || Xvelocity < - 0.01) {
                 animator.CrossFade("Walk_Ani", 0, 0);
+                
+                
+                    //SoundFxManager.instance.PlaySoundFXClip2(walkSoundClip, transform, 1f);
+                
             }
             else
             {
@@ -139,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
             bufferJump = 0f;
             animator.CrossFade("Jump_Ani", 0,0);
+            SoundFxManager.instance.PlaySoundFXClip(jumpSoundClip, transform, 1f);
         }
 
         altura = transform.position.y;
