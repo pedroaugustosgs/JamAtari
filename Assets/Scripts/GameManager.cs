@@ -160,11 +160,11 @@ public class GameManager : MonoBehaviour
         {
             RoupaUI.GetComponent<Image>().sprite = roupaAzul;
         }
-        else if (roupaAtual == 1)
+        else if (roupaCorreta == 1)
         {
             RoupaUI.GetComponent<Image>().sprite = roupaVerde;
         }
-        else if (roupaAtual == 2)
+        else if (roupaCorreta == 2)
         {
             RoupaUI.GetComponent<Image>().sprite = roupaVermelha;
         }
