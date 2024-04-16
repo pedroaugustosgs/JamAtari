@@ -5,9 +5,9 @@ using UnityEngine;
 public class Colisons : MonoBehaviour
 {
     public GameObject gm;
-    
 
-    
+    [SerializeField] private AudioClip roupaFalhaSoundClip;
+
     private void OnCollisionEnter2D(Collision2D other) {
         //Debug.Log("Colidiu");
         int roupaCorreta = gm.GetComponent<GameManager>().roupaCorreta;
@@ -49,6 +49,7 @@ public class Colisons : MonoBehaviour
                 other.gameObject.SetActive(false);
             }else{
                 gm.GetComponent<GameManager>().RoupaFalha();
+                SoundFxManager.instance.PlaySoundFXClip(roupaFalhaSoundClip, transform, 1f);
                 gm.GetComponent<GameManager>().roupaAtual = 0;
                 other.gameObject.SetActive(false);
             }

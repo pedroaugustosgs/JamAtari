@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour
     public int aneisTotal = 4;
     public int aneisPassados = 0;
 
-
-
+    [SerializeField] private AudioClip lostLifeSoundClip;
+    [SerializeField] private AudioClip pointSoundClip;
     void Start()
     {
         linhaUI = linha.GetComponent<Image>();
@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
     public void RoupaCompleta()
     {
         //
+        SoundFxManager.instance.PlaySoundFXClip(pointSoundClip, transform, 1f);
         anel.SetActive(true);
         anel2.SetActive(true);
         anel3.SetActive(true);
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour
             RoupaFalha(); // Chama a função RoupaFalha
             timer = 60.0f; // Reinicia o timer
             vidas--; // Decrementa as vidas
+            SoundFxManager.instance.PlaySoundFXClip(lostLifeSoundClip, transform, 1f);
             if (vidas == 0) // Se as vidas acabaram
             {
                 // Game Over
