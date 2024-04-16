@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
         anel2.SetActive(true);
         anel3.SetActive(true);
         anel4.SetActive(true);
+        aneisPassados = 0;
+        timer = 60.0f;
         score++;
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
         UpdateUI();
@@ -90,7 +92,8 @@ public class GameManager : MonoBehaviour
         anel2.SetActive(true);
         anel3.SetActive(true);
         anel4.SetActive(true);
-
+        aneisPassados = 0;
+        timer = 60.0f;
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
         //restartar o timer
         UpdateUI();
@@ -98,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     }
     
-    public void AneisPassados()
+    public bool AneisPassados()
     {
         aneisPassados++;
         if (aneisPassados == aneisTotal)
@@ -106,8 +109,12 @@ public class GameManager : MonoBehaviour
             // Ganhou
             Debug.Log("Ganhou");
             RoupaCompleta();
+            return true;
+            
         }
+
         UpdateUI();
+        return false;
     }
 
     public void buff(){
@@ -160,11 +167,11 @@ public class GameManager : MonoBehaviour
         {
             RoupaUI.GetComponent<Image>().sprite = roupaAzul;
         }
-        else if (roupaAtual == 1)
+        else if (roupaCorreta == 1)
         {
             RoupaUI.GetComponent<Image>().sprite = roupaVerde;
         }
-        else if (roupaAtual == 2)
+        else if (roupaCorreta == 2)
         {
             RoupaUI.GetComponent<Image>().sprite = roupaVermelha;
         }
