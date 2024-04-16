@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     }
     
-    public void AneisPassados()
+    public bool AneisPassados()
     {
         aneisPassados++;
         if (aneisPassados == aneisTotal)

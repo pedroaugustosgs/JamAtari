@@ -56,8 +56,10 @@ public class Colisons : MonoBehaviour
 
         if(other.gameObject.tag == "Anel"){
             if(roupaCorreta == gm.GetComponent<GameManager>().roupaAtual){
-                gm.GetComponent<GameManager>().AneisPassados();
-                other.gameObject.SetActive(false);
+                bool ganhou = gm.GetComponent<GameManager>().AneisPassados();
+                if(!ganhou){
+                    other.gameObject.SetActive(false);
+                }
             }
         }
     }
