@@ -109,8 +109,12 @@ public class GameManager : MonoBehaviour
             // Ganhou
             Debug.Log("Ganhou");
             RoupaCompleta();
+            return true;
+            
         }
+
         UpdateUI();
+        return false;
     }
 
     public void buff(){

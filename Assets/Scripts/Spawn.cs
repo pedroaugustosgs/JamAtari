@@ -32,6 +32,7 @@ public class Spawn : MonoBehaviour
             {
                 // Adiciona o índice do barril correto uma vez
                 possibleBarrels.Add(i);
+                possibleBarrels.Add(i);
             }
             else
             {
