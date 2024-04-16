@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
         anel2.SetActive(true);
         anel3.SetActive(true);
         anel4.SetActive(true);
+        aneisPassados = 0;
+        timer = 60.0f;
         score++;
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
         UpdateUI();
@@ -90,7 +92,8 @@ public class GameManager : MonoBehaviour
         anel2.SetActive(true);
         anel3.SetActive(true);
         anel4.SetActive(true);
-
+        aneisPassados = 0;
+        timer = 60.0f;
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
         //restartar o timer
         UpdateUI();
