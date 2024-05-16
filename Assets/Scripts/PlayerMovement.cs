@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -85,8 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isClimbing)
         {
-            Climbing(colLadder);
-            animator.CrossFade("Climb_Ani", 0, 0);
+     
         }
         else
         {
@@ -96,38 +94,59 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-
-    void Moviment()
+    private void FixedUpdate()
     {
-        //gravidade
-        Yvelocity += -fallSpeed;
-        //Debug.Log(Yvelocity);
+        if (!isClimbing) { 
+            //gravidade
+            Yvelocity += -fallSpeed;
+            //Debug.Log(Yvelocity);
+            if (Physics2D.OverlapBox(feet.position, feet.localScale, 0, filter, results) > 0 && Yvelocity < 0)
+            {
+                //Debug.Log("tocou  no ch�o");
+                Yvelocity = 0;
+                Vector2 surface = Physics2D.ClosestPoint(transform.position, results[0]) + Vector2.up * floorHeight;
+                transform.position = new Vector3(transform.position.x, surface.y, 0);
+                isGrounded = true;
 
-        if (Physics2D.OverlapBox(feet.position, feet.localScale, 0, filter, results) > 0 && Yvelocity < 0)
-        {
-            //Debug.Log("tocou  no ch�o");
-            Yvelocity = 0;
-            Vector2 surface = Physics2D.ClosestPoint(transform.position, results[0]) + Vector2.up * floorHeight;
-            transform.position = new Vector3(transform.position.x, surface.y, 0);
-            isGrounded = true;
+                //animation
+                if (Xvelocity > 0.01 || Xvelocity < -0.01)
+                {
+                    animator.CrossFade("Walk_Ani", 0, 0);
 
-            
-            if (Xvelocity > 0.01 || Xvelocity < - 0.01) {
-                animator.CrossFade("Walk_Ani", 0, 0);
-                
-                
+
                     //SoundFxManager.instance.PlaySoundFXClip2(walkSoundClip, transform, 1f);
-                
+
+                }
+                else
+                {
+                    animator.CrossFade("Idle_Ani", 0, 0);
+                }
             }
             else
             {
-                animator.CrossFade("Idle_Ani", 0, 0);
+                isGrounded = false;
             }
+            transform.Translate(new Vector3(Xvelocity, Yvelocity, 0) * Mathf.Clamp(Time.fixedDeltaTime, 0, 0.002f));
         }
-        else
+        else if (isClimbing)
         {
-            isGrounded = false;
+            Yvelocity = 0;
+            transform.Translate(new Vector3(colLadder.transform.position.x - transform.position.x, climbSpeed * dirVertical * 0.001f, 0));
+            GetComponent<SpriteRenderer>().flipX = false;
+            animator.CrossFade("Climb_Ani", 0, 0);
         }
+
+        
+    }
+
+
+
+    void Moviment()
+    {
+  
+       
+
+        
 
 
         if (InputW)
@@ -171,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
        
         //Debug.Log(Yvelocity);
         //Debug.Log(jumpHeight);
-        transform.Translate(new Vector3(Xvelocity, Yvelocity, 0) * Mathf.Clamp(Time.deltaTime, 0, 0.002f));
+       
        
 
     }
@@ -202,10 +221,5 @@ public class PlayerMovement : MonoBehaviour
         
     }
     
-    void Climbing(Collider2D colLadder)
-    {
-
-        transform.Translate(new Vector3(colLadder.transform.position.x - transform.position.x, climbSpeed * dirVertical * 0.001f, 0));
-        GetComponent<SpriteRenderer>().flipX = false;
-    }
+   
 }

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 6
-  fallSpeed: 0.03
+  fallSpeed: 0.035
   speed: 3
   climbSpeed: 3
   feet: {fileID: 7054423953055168922}
@@ -121,6 +121,8 @@ MonoBehaviour:
     maxNormalAngle: 0
   bufferTime: 0.5
   isClimbing: 0
+  jumpSoundClip: {fileID: 0}
+  walkSoundClip: {fileID: 0}
 --- !u!61 &4166232706135693257
 BoxCollider2D:
   m_ObjectHideFlags: 0
