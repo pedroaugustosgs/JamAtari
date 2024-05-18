@@ -1849,7 +1849,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Pedro Vilela \tProgramador/GameDesigner\nLucas Furtado  Programador/GameDesigner\nAnelisa
-    \t\t\t  Reis Artista"
+    Reis\t\t\t   Artista"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a97df6af784d5740be95f7c30b51090, type: 2}
   m_sharedMaterial: {fileID: -5566806005210546968, guid: 6a97df6af784d5740be95f7c30b51090, type: 2}
