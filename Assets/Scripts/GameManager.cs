@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private AudioClip lostLifeSoundClip;
     [SerializeField] private AudioClip pointSoundClip;
+    [SerializeField] private AudioClip powerUpClip;
+
+
     void Start()
     {
         linhaUI = linha.GetComponent<Image>();
@@ -95,6 +98,7 @@ public class GameManager : MonoBehaviour
         anel4.SetActive(true);
         aneisPassados = 0;
         timer = 60.0f;
+        vidas--;
         roupaCorreta = Random.Range(0, 3);  // 0, 1, 2
         //restartar o timer
         UpdateUI();
@@ -105,7 +109,7 @@ public class GameManager : MonoBehaviour
     public bool AneisPassados()
     {
         aneisPassados++;
-        if (aneisPassados == aneisTotal)
+        if (aneisPassados >= aneisTotal)
         {
             // Ganhou
             Debug.Log("Ganhou");
@@ -120,8 +124,10 @@ public class GameManager : MonoBehaviour
 
     public void buff(){
         Player.GetComponent<PlayerMovement>().speed *= 1.2f; // Aumenta a velocidade em 20%
+        SoundFxManager.instance.PlaySoundFXClip(powerUpClip, transform, 1f);
         Invoke("removeBuff", buffDuration); // Remove o buff após buffDuration segundos
         UpdateUI();
+
     }
 
     void removeBuff()
@@ -133,19 +139,20 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime; // Decrementa o timer
-
+       
         if (timer <= 0) // Se o timer acabou
         {
             RoupaFalha(); // Chama a função RoupaFalha
             timer = 60.0f; // Reinicia o timer
-            vidas--; // Decrementa as vidas
             SoundFxManager.instance.PlaySoundFXClip(lostLifeSoundClip, transform, 1f);
-            if (vidas == 0) // Se as vidas acabaram
-            {
-                // Game Over
-                Debug.Log("Game Over");
-            }
+            
         
+        }
+        if (vidas <= 0) // Se as vidas acabaram
+        {
+            // Game Over
+            SceneManager.LoadScene("EndScene");
+            Debug.Log("Game Over");
         }
         UpdateUI();
     }

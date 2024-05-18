@@ -21,8 +21,8 @@ public class Rope : MonoBehaviour
     private void FixedUpdate()
     {
         distanceAnchors = Vector2.Distance(hook.transform.position, anchor2.transform.position);
-        Debug.Log(distanceAnchors);
-        Debug.Log(numLinks);
+        //Debug.Log(distanceAnchors);
+        //sDebug.Log(numLinks);
         if (numLinks < (Mathf.Abs((distanceAnchors)*2) + 7))
         {
             numLinks++;
@@ -61,6 +61,7 @@ public class Rope : MonoBehaviour
                 {
                
                 anchor2.GetComponent<HingeJoint2D>().connectedBody = prevBod;
+                anchor2.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0, -7);
                 }
             }
           
